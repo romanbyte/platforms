@@ -2,3 +2,7 @@
 
 apt-get update
 apt-get install python python-yaml -y --force-yes
+
+echo "export PATH=${APP_VENV}/bin:\${PATH}" | tee -a ${HOME}/.profile /etc/profile >/dev/null
+echo "Defaults secure_path=\"${APP_VENV}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"" > /etc/sudoers.d/venv
+chown -R ${USER}:${USER} ${APP_VENV}
